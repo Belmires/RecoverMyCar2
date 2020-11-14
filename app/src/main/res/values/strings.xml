@@ -1,0 +1,38 @@
+    <resources>
+        <string name="app_name">Recover My Car</string>
+        <string name="conectar">Iniciar</string>
+        <string name="todo">TODO</string>
+        <string name="title_activity_maps">Map</string>
+        <string name="chaveAPI">AIzaSyC9u6OkcTJk4gG66AvFQIS1m7f_D0XZUnQ</string>
+
+        <string name="cadastrar">Cadastrar</string>
+        <string name="entrar">Entrar</string>
+        <string name="insira_a_senha">Insira a senha</string>
+        <string name="insira_o_suario">Insira o úsuario</string>
+        <string name="placa">Placa</string>
+        <string name="dados_do_ve_culo">Dados do Veículo</string>
+        <string name="cpf">CPF</string>
+        <string name="confirmar_senha">Confirmar senha</string>
+        <string name="senha">Senha</string>
+        <string name="feminino">Feminino</string>
+        <string name="masculino">Masculino</string>
+        <string name="nome_completo">Nome Completo</string>
+        <string name="insira_um_nome_de_usuario">Insira um nome de usuario</string>
+        <string name="sexo">Sexo:</string>
+        <string name="preencha_o_form_lario">Preencha o Formúlario</string>
+        <string name="dados_do_us_ario">Dados do usúario</string>
+        <string name="title_activity_main">MainActivity</string>
+        <string name="navigation_drawer_open">Open navigation drawer</string>
+        <string name="navigation_drawer_close">Close navigation drawer</string>
+        <string name="nav_header_title">Android Studio</string>
+        <string name="nav_header_subtitle">android.studio@android.com</string>
+        <string name="nav_header_desc">Navigation header</string>
+        <string name="action_settings">Settings</string>
+
+        <string name="menu_home">Home</string>
+        <string name="menu_gallery">Gallery</string>
+        <string name="menu_slideshow">Slideshow</string>
+        <string name="title_activity_nav">NavActivity</string>
+        <string name="email">Email</string>
+        <string name="btn_cadastrar">Cadastrar</string>
+    </resources>
