@@ -35,8 +35,8 @@ class LogActivity : AppCompatActivity() {
     }
 
     private fun logar(){
-        val cpf = editTextCPF.text
-        val senha = editTextSenha.text
+        val cpf = editTextCPF.text.toString()
+        val senha = editTextSenha.text.toString()
 
         if (cpf.isEmpty()){
             Toast.makeText(applicationContext, "CPF não preenchido", Toast.LENGTH_SHORT).show()
@@ -44,11 +44,10 @@ class LogActivity : AppCompatActivity() {
             Toast.makeText(applicationContext, "Senha não preenchida", Toast.LENGTH_SHORT).show()
         } else if (databaseHelper!!.checkUser(cpf!!.toString().trim { it <= ' ' }, senha!!.toString().trim { it <= ' ' })) {
 
-            val accountsIntent = Intent(activity, NavActivity::class.java)
-            accountsIntent.putExtra("cpf", cpf!!.toString().trim { it <= ' ' })
 
+            val accountsIntent = Intent(this, NavActivity::class.java)
+            accountsIntent.putExtra("Cpf", cpf)
             Toast.makeText(applicationContext, "Logado", Toast.LENGTH_SHORT).show()
-            limparCampos()
             startActivity(accountsIntent)
         }else{
             Toast.makeText(applicationContext, "Usuário não cadastrado", Toast.LENGTH_SHORT).show()

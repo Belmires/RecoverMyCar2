@@ -15,14 +15,14 @@
 
     <TextView
         android:id="@+id/textUserName"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="151dp"
+        android:layout_height="27dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="20dp"
         android:text="UserName"
         android:textColor="@color/black"
-        android:textSize="36sp"
+        android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/textName"
         app:layout_constraintEnd_toEndOf="parent"

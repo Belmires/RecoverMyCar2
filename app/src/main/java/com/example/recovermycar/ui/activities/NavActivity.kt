@@ -2,21 +2,17 @@ package com.example.recovermycar.ui.activities
 
 import android.os.Bundle
 import android.view.Menu
-import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.google.android.material.snackbar.Snackbar
+import android.widget.Toast
 import com.google.android.material.navigation.NavigationView
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
-import androidx.navigation.ui.setupActionBarWithNavController
-import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.Toolbar
 import com.example.recovermycar.R
-import com.example.recovermycar.ui.model.User
 import com.example.recovermycar.ui.sql.DataBaseHelper
 import kotlinx.android.synthetic.main.nav_header_main.*
+
 
 class NavActivity : AppCompatActivity() {
 
@@ -33,15 +29,25 @@ class NavActivity : AppCompatActivity() {
 
         initObjects()
 
-        val cpf = intent.getStringExtra("cpf").toString()
-        val user = databaseHelper!!.selectUser(cpf)
+        val usercpf = intent.getStringExtra("Cpf").toString()
+        Toast.makeText(applicationContext, usercpf, Toast.LENGTH_SHORT).show()
 
-//        textUserName.text = user.userName
-//        textName.text = user.name
-//        textEmail.text = user.email
+        var usuario = databaseHelper!!.selectUser(usercpf)
+
+        var idUsuario = usuario.id
+        var nomeUsuario = usuario.name
+        var nomeCompleto = usuario.userName
+        var cpfUsuario = usuario.name
+        var passwordUsuario= usuario.cpf
+        var EmailUsuario= usuario.password
+        var sexoUsuario= usuario.email
+        var placaUsuario= usuario.sexo
+        var placa = usuario.placa
 
 
-
+        //textName.text = "nomeUsuario"
+        //textEmail.text = userList.toString()
+        //textUserName.text = userName
 
         val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
         val navView: NavigationView = findViewById(R.id.nav_view)

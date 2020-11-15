@@ -239,24 +239,50 @@ class DataBaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
 
     }
 
-    fun selectUser(cpf: String) {
+    fun selectUser(userDef: String): User {
 
         val db = this.readableDatabase
-        val query = "Select * from $TABLE_USER where $COLUMN_USER_CPF = $cpf"
-        val result: Cursor = db.(query)
 
-        val user = User(
-                result.(result.getColumnIndex(COLUMN_USER_ID)).toInt(),
-                result.getString(result.getColumnIndex(COLUMN_USER_NAME)),
-                result.getString(result.getColumnIndex(COLUMN_USER_NAME_COMPLET)),
-                result.getString (result.getColumnIndex(COLUMN_USER_CPF)),
-                result.getString(result.getColumnIndex(COLUMN_USER_PASSWORD)),
-                result.getString(result.getColumnIndex(COLUMN_USER_EMAIL)),
-                result .getString (result.getColumnIndex(COLUMN_USER_SEXO)),
-                result.getString(result.getColumnIndex(COLUMN_USER_PLACA))
-        )
+        val userList = ArrayList<User>()
 
-       return user
+        val columns = arrayOf(COLUMN_USER_ID, COLUMN_USER_NAME, COLUMN_USER_NAME_COMPLET, COLUMN_USER_CPF ,COLUMN_USER_PASSWORD, COLUMN_USER_EMAIL, COLUMN_USER_SEXO, COLUMN_USER_PLACA)
+
+        //val selection criteria
+        val selection = "$COLUMN_USER_CPF = $userDef"
+
+        // selection arguments
+        //val selectionArgs = arrayOf(cpf)
+
+        val cursor = db.query(
+                TABLE_USER, //Table to query //
+                columns, //columns to return
+                selection, //columns for the WHERE clause
+                null, //The values for the WHERE clause
+                null,  //group the rows
+                null, //filter by row groups
+                null) //The sort order
+
+        if (cursor.moveToFirst()) {
+            do {
+                val user = User(id = cursor.getString(cursor.getColumnIndex(COLUMN_USER_ID)).toInt(),
+                        userName = cursor.getString(cursor.getColumnIndex(COLUMN_USER_NAME)),
+                        name = cursor.getString(cursor.getColumnIndex(COLUMN_USER_NAME_COMPLET)),
+                        cpf = cursor.getString(cursor.getColumnIndex(COLUMN_USER_CPF)),
+                        password = cursor.getString(cursor.getColumnIndex(COLUMN_USER_PASSWORD)),
+                        email = cursor.getString(cursor.getColumnIndex(COLUMN_USER_EMAIL)),
+                        sexo = cursor.getString(cursor.getColumnIndex(COLUMN_USER_SEXO)),
+                        placa = cursor.getString(cursor.getColumnIndex(COLUMN_USER_PLACA))
+                )
+                userList.add(user)
+
+            } while (cursor.moveToNext())
+        }
+
+        var usuario = userList[0]
+
+        cursor.close()
+        db.close()
+        return usuario
     }
 
 
